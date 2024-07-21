@@ -1,3 +1,4 @@
+-- need to update this
 SELECT movies.movie_name AS movie, reviews.review
 FROM reviews
 LEFT JOIN movies
