@@ -3,7 +3,7 @@ const express = require('express');
 // We'll be creating a Connection Pool. Read up on the benefits here: https://node-postgres.com/features/pooling
 const { Pool } = require('pg');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Express middleware
@@ -14,16 +14,22 @@ app.use(express.json());
 const pool = new Pool(
   {
     // TODO: Enter PostgreSQL username
-    user: '',
+    user: 'postgres',
     // TODO: Enter PostgreSQL password
-    password: '',
+    password: 'password',
     host: 'localhost',
     database: 'movies_db'
   },
   console.log(`Connected to the movies_db database.`)
 )
 
-pool.connect();
+pool.connect((err, client, release) => {
+  if (err) {
+    return console.error('Error acquiring client', err.stack);
+  }
+  console.log('Connected to the movies_db database.');
+  release();
+});
 
 // Create a movie
 app.post('/api/new-movie', ({ body }, res) => {
