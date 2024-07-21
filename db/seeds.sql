@@ -1,16 +1,33 @@
-INSERT INTO movies (movie_name)
-VALUES ('Lion King'),
-       ('The Godfather'),
-       ('West Side Story'),
-       ('Parasite'),
-       ('The Wizard of Oz');
+ -- Seed data for department table
+INSERT INTO department (department_name) VALUES
+('Sales'),
+('Engineering'),
+('Human Resources'),
+('Marketing'),
+('Finance');
 
-INSERT INTO reviews (movie_id, review)
-VALUES (1, 'Zazu is underrated. Give that hornbill a sequel!'),
-       (2, 'I''m gonna make him an offer you can''t refuse, watch this movie'),
-       (1, 'Scar is the lion everyone loves to hate'),
-       (3, 'Ten years of ballet and three years of tap to join a gang in this neighborhood'),
-       (5, 'The tin man gave a metallic, hollow performance'),
-       (1, 'Hakuna matata'),
-       (5, 'Those flying monkeys are nightmare fuel!');
-       
+-- Seed data for role table
+INSERT INTO role (title, salary, department_id) VALUES
+('Sales Manager', 75000.00, 1),
+('Software Engineer', 95000.00, 2),
+('HR Specialist', 60000.00, 3),
+('Marketing Coordinator', 55000.00, 4),
+('Financial Analyst', 70000.00, 5),
+('Sales Associate', 45000.00, 1),
+('DevOps Engineer', 90000.00, 2),
+('Recruiter', 50000.00, 3),
+('SEO Specialist', 60000.00, 4),
+('Accountant', 65000.00, 5);
+
+-- Seed data for employee table
+INSERT INTO employee (first_name, last_name, manager_id, role_id) VALUES
+('Jackson', 'Dove', NULL, 1),
+('Jane', 'Smith', 1, 2),
+('Alice', 'Johnson', 1, 3),
+('Bob', 'Brown', NULL, 4),
+('Charlie', 'Davis', 4, 5),
+('David', 'Evans', 1, 6),
+('Brianna', 'Garcia', 2, 7),
+('Frank', 'Harris', 3, 8),
+('Grace', 'Ivy', 4, 9),
+('Hank', 'Jones', 5, 10);
